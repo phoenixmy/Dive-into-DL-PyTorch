@@ -565,10 +565,10 @@ def train_and_predict_rnn_pytorch(model, num_hiddens, vocab_size, device,
 
 
 # ######################################## 7.2 ###############################################
-def train_2d(trainer):  
+def train_2d(trainer, epoch=20):  
     x1, x2, s1, s2 = -5, -2, 0, 0  # s1和s2是自变量状态，本章后续几节会使用
     results = [(x1, x2)]
-    for i in range(20):
+    for i in range(epoch):
         x1, x2, s1, s2 = trainer(x1, x2, s1, s2)
         results.append((x1, x2))
     print('epoch %d, x1 %f, x2 %f' % (i + 1, x1, x2))
@@ -580,8 +580,6 @@ def show_trace_2d(f, results):
     plt.contour(x1, x2, f(x1, x2), colors='#1f77b4')
     plt.xlabel('x1')
     plt.ylabel('x2')
-
-
 
 
 # ######################################## 7.3 ###############################################
